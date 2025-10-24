@@ -59,6 +59,27 @@
                             {% endif %}
                         </div>
 
+                        <div class="mb-3">
+                            <span class="form-label d-block">Styles</span>
+                            <div class="d-flex flex-column gap-2">
+                                {% for checkbox in form.styles %}
+                                    <div class="form-check">
+                                        {{ checkbox.tag }}
+                                        <label class="form-check-label" for="{{ checkbox.id_for_label }}">
+                                            {{ checkbox.choice_label }}
+                                        </label>
+                                    </div>
+                                {% empty %}
+                                    <p class="text-muted mb-0">Aucun style disponible pour le moment.</p>
+                                {% endfor %}
+                            </div>
+                            {% if form.styles.errors %}
+                                <div class="invalid-feedback d-block">
+                                    {{ form.styles.errors|striptags }}
+                                </div>
+                            {% endif %}
+                        </div>
+
                         <div class="d-grid">
                             <button type="submit" class="btn btn-primary">Enregistrer</button>
                         </div>

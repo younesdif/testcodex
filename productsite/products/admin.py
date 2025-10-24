@@ -10,3 +10,4 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = ("name", "price", "created_at")
     search_fields = ("name",)
     list_filter = ("created_at",)
+    filter_horizontal = ("styles",)
