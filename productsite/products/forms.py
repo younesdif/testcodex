@@ -10,11 +10,18 @@ class ProductForm(forms.ModelForm):
 
     class Meta:
         model = Product
-        fields = ["name", "description", "price"]
+        fields = ["name", "description", "price", "styles"]
         widgets = {
-            "name": forms.TextInput(attrs={"class": "form-control", "placeholder": "Nom du produit"}),
+            "name": forms.TextInput(
+                attrs={"class": "form-control", "placeholder": "Nom du produit"}
+            ),
             "description": forms.Textarea(
                 attrs={"class": "form-control", "rows": 4, "placeholder": "Description du produit"}
             ),
-            "price": forms.NumberInput(attrs={"class": "form-control", "placeholder": "Prix"}),
+            "price": forms.NumberInput(
+                attrs={"class": "form-control", "placeholder": "Prix"}
+            ),
+            "styles": forms.CheckboxSelectMultiple(
+                attrs={"class": "form-check"}
+            ),
         }
